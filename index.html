@@ -21,23 +21,44 @@ body{
     align-items:center;
     text-align:center;
     color:#f5d17a;
-    
 
-    /* 🔥 Your Photo as Background */
     background: 
         linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-        url("iftar.jpg") no-repeat center center/cover;
+        url("iftar.jpg") no-repeat center center;
+    background-size: cover;   /* always fit */
 }
 
-/* .container{
-    background: rgba(0,0,0,0.6);
+/* Title Layout */
+.title{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.title .top,
+.title .bottom{
+    font-size: clamp(40px, 7vw, 85px);
+    color:#e6b35a;
+    letter-spacing:2px;
+}
+
+.title .e{
+    font-size: clamp(30px, 5vw, 60px);
+    color:#e6b35a;
+    margin:8px 0;
+}
+
+.container{
+    background: rgba(0, 0, 0, 0.285);
     padding:40px;
     border-radius:20px;
     backdrop-filter: blur(6px);
     box-shadow:0 0 25px rgba(255,215,100,0.4);
     width:90%;
     max-width:600px;
-} */
+}
 
 h1{
     font-size:40px;
@@ -52,26 +73,26 @@ p{
 .countdown{
     display:flex;
     justify-content:space-between;
-    gap:10px;
-    flex-wrap:wrap;
+    align-items:center;
+    gap:2vw;              /* responsive gap */
 }
 
 .time-box{
+    flex:1;               /* equal width */
+    padding:2vw 1vw;      /* responsive padding */
+    border-radius:1.5vw;
     background:rgba(255,215,100,0.1);
-    padding:20px;
-    border-radius:15px;
-    width:110px;
+    text-align:center;
 }
 
 .time-box span{
-    display:block;
-    font-size:28px;
+    font-size:9vw;        /* responsive number size */
     font-weight:bold;
 }
 
 .label{
-    font-size:14px;
-    margin-top:5px;
+    font-size:1.5vw;
+    margin-top:0.5vw;
 }
 
 .footer{
@@ -85,8 +106,12 @@ p{
 <body>
 
 <div class="container">
-    <h1>Dawat-e-Iftar</h1>
-    <p>6 March 2026 • 05:00 PM</p>
+    <h1 class="title">
+        <span class="top">Dawat</span>
+        <span class="e">E</span>
+        <span class="bottom">Iftar</span>
+    </h1>
+    <p>6 March 2026 • 05:48 PM</p>
 
     <div class="countdown">
         <div class="time-box">
@@ -113,7 +138,7 @@ p{
 </div>
 
 <script>
-const eventDate = new Date("March 6, 2026 17:00:00").getTime();
+const eventDate = new Date("March 6, 2026 17:48:00").getTime();
 
 const countdownFunction = setInterval(function() {
 
